@@ -1,9 +1,35 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './Business.css';
 
+
+
 function Business() {
+  const [businessData, setBusinessData] = useState(null);
+
+  useEffect(() => {
+    const apiKey = 'YEsZ7jkTPMpLu_ifAEayMPK0rGMDiXPn0la8jFOIZ648nWksGH1RsK8VRtMddg72PQY6HZiCZwUA_X85DgZj_ErFxSSciWvJeXhZ4OUlivWoMdR-x8SRYIEYKHE2AZXYx';
+    const yelpEndpoint = 'https://api.yelp.com/v3/businesses/HBcSYVckDhznB7KR9fmvTg';
+
+    fetch(yelpEndpoint, {
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+      },
+    })
+      .then(response => response.json())
+      .then(data => {
+        setBusinessData(data);
+      })
+      .catch(error => console.error('Error fetching Yelp API:', error));
+  }, []);
+
+  // if(!businessData) {
+  //   return <p>Loading...</p>;
+  // }
+
+  console.log(businessData);
+
   return (
-    <div className='business-container'>
+    <div className="business-container">
       <img
         src="images/pokebowl.jpg"
         alt="Pokebowl"
