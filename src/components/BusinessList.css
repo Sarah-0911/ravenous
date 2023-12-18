@@ -1,0 +1,7 @@
+.business-list-grid {
+  margin: 100px;
+  display: grid;
+  gap: 60px;
+  grid-template-columns: repeat(3, 1fr);
+  list-style-type: none;
+}

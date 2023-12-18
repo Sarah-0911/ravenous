@@ -1,8 +1,3 @@
-.business-container {
-  margin: 12px;
-  width: 280px;
-}
-
 .business-container .gold {
   color: #B6943D;
   font-weight: 700;
@@ -15,4 +10,8 @@
 .business-container .flex-description {
   display: flex;
   justify-content: space-between;
+}
+
+.business-container .right-description {
+  text-align: right;
 }

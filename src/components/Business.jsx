@@ -23,7 +23,7 @@ function Business() {
             W12
           </p>
         </div>
-        <div>
+        <div className="right-description">
           <p className="gold">
             Hawaii
           </p>
