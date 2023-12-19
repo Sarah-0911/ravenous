@@ -1,12 +1,12 @@
+import React from 'react';
 import './App.css';
-// import Business from './components/Business';
 import BusinessList from './components/BusinessList';
 import Header from './components/Header';
 
 function App() {
   return (
     <div>
-      {/* <Business /> */}
+      <h1>ravenous</h1>
       <Header />
       <BusinessList />
     </div>

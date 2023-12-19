@@ -2,7 +2,7 @@ import React from 'react';
 import './SearchBar.css';
 
 function SearchBar() {
-  const sortingOptions = {
+  const sortingByOptions = {
     'Best Match': 'best_match',
     'Highest Rated': 'rating',
     'Most Reviewed': 'review_count',
@@ -11,19 +11,14 @@ function SearchBar() {
   return (
     <div className="search-bar">
       <div className="filters">
-        {Object.entries(sortingOptions).map(([label, value]) => (
-          <li className='sorting-options' key={value}>{label}</li>
-        ))}
+        {Object.keys(sortingByOptions).map(sortingByOption => {
+          let sortingByOptionValue = sortingByOptions[sortingByOption];
+          return <li className='sorting-options' key={sortingByOptionValue}>{sortingByOption}</li>
+        })}
       </div>
       <div className='search-inputs'>
-        <div>
-          {/* <label htmlFor="userSearchTerm">Search Term</label> */}
-          <input type="text" id="userSearchTerm" className='search-input' placeholder="Search Businesses" />
-        </div>
-        <div>
-          {/* <label htmlFor="selectedLocation">Location</label> */}
-          <input type="text" id="selectedLocation" className='search-input' placeholder="Where?" />
-        </div>
+        <input type="text" className='search-input' placeholder="Search Businesses" />
+        <input type="text" className='search-input' placeholder="Where?" />
       </div>
       <button className="go">Let's go</button>
     </div>
