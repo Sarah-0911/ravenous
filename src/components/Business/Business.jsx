@@ -2,19 +2,7 @@
 import styles from './Business.module.css';
 
 
-function Business() {
-
-  const business = {
-    imageSrc: "images/pokebowl.jpg",
-    name: "Pokawa",
-    address: "12 Independence Avenue",
-    city: "Bordertown",
-    state: "NY",
-    zipCode: "10101",
-    category: "Hawaii",
-    rating: 4.5,
-    reviewCount: 90
-  }
+function Business(props) {
 
   // const [businessData, setBusinessData] = useState(null);
 
@@ -41,23 +29,23 @@ function Business() {
   // console.log(businessData);
 
   return (
-    <div className={styles.business}>
+    <div>
       <img
         className={styles.image}
-        src={business.imageSrc}
+        src={props.business.imageSrc}
         alt=""
       />
-      <h2>{business.name}</h2>
+      <h2>{props.business.name}</h2>
       <div className={styles.flexDescription}>
         <div>
-          <p>{business.address}</p>
-          <p>{business.city}</p>
-          <p>{`${business.state} ${business.zipCode}`}</p>
+          <p>{props.business.address}</p>
+          <p>{props.business.city}</p>
+          <p>{`${props.business.state} ${props.business.zipCode}`}</p>
         </div>
         <div className={styles.rightDescription}>
-          <p className={styles.gold}>{business.category.toUpperCase()}</p>
-          <p className={styles.gold}>{`${business.rating} stars`}</p>
-          <p>{`${business.reviewCount} reviews`}</p>
+          <p className={styles.gold}>{props.business.category}</p>
+          <p className={styles.gold}>{`${props.business.rating} stars`}</p>
+          <p>{`${props.business.reviewCount} reviews`}</p>
         </div>
       </div>
     </div>
