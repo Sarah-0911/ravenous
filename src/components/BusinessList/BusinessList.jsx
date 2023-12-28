@@ -1,6 +1,6 @@
 import React from 'react';
-import Business from './Business';
-import './BusinessList.css';
+import Business from '../Business/Business';
+import styles from './BusinessList.module.css';
 
 function BusinessList() {
   const restaurantsArray = Array.from({length: 12},
@@ -8,7 +8,7 @@ function BusinessList() {
   const businessListItems = restaurantsArray.map((restaurant,index) =>
   <li key={index}>{restaurant}</li>);
 
-  return <ul className="business-list-grid">{businessListItems}</ul>;
+  return <ul className={styles.grid}>{businessListItems}</ul>;
 }
 
 export default BusinessList;

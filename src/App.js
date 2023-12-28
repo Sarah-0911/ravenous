@@ -1,12 +1,12 @@
 import React from 'react';
-import './App.css';
-import BusinessList from './components/BusinessList';
-import Header from './components/Header';
+import styles from './App.module.css'
+import BusinessList from './components/BusinessList/BusinessList';
+import Header from './components/Header/Header';
 
 function App() {
   return (
     <div>
-      <h1>ravenous</h1>
+      <h1 className={styles.title}>ravenous</h1>
       <Header />
       <BusinessList />
     </div>

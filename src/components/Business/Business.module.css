@@ -1,17 +1,17 @@
-.business-container .gold {
+.gold {
   color: #B6943D;
   font-weight: 700;
 }
 
-.business-container img {
+.image {
   width: 100%;
 }
 
-.business-container .flex-description {
+.flexDescription {
   display: flex;
   justify-content: space-between;
 }
 
-.business-container .right-description {
+.rightDescription {
   text-align: right;
 }

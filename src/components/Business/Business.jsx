@@ -1,6 +1,5 @@
 // import React, { useState, useEffect } from 'react';
-import './Business.css';
-
+import styles from './Business.module.css';
 
 
 function Business() {
@@ -42,21 +41,22 @@ function Business() {
   // console.log(businessData);
 
   return (
-    <div className="business-container">
+    <div className={styles.business}>
       <img
+        className={styles.image}
         src={business.imageSrc}
         alt=""
       />
       <h2>{business.name}</h2>
-      <div className="flex-description">
-        <div className="address">
+      <div className={styles.flexDescription}>
+        <div>
           <p>{business.address}</p>
           <p>{business.city}</p>
           <p>{`${business.state} ${business.zipCode}`}</p>
         </div>
-        <div className="right-description">
-          <p className="gold">{business.category.toUpperCase()}</p>
-          <p className="gold">{`${business.rating} stars`}</p>
+        <div className={styles.rightDescription}>
+          <p className={styles.gold}>{business.category.toUpperCase()}</p>
+          <p className={styles.gold}>{`${business.rating} stars`}</p>
           <p>{`${business.reviewCount} reviews`}</p>
         </div>
       </div>
