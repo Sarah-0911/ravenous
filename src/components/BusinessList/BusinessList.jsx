@@ -4,9 +4,13 @@ import styles from './BusinessList.module.css';
 
 function BusinessList(props) {
   const businessListItems = props.businessesArray.map((restaurant,index) =>
-  <li key={index}><Business business={restaurant} /></li>);
+  <Business key={index} business={restaurant} />);
 
-  return <ul className={styles.grid}>{businessListItems}</ul>;
-}
+  return (
+  <div className={styles.grid}>
+    {businessListItems}
+  </div>
+  )
+};
 
 export default BusinessList;
