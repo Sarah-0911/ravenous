@@ -5,7 +5,8 @@ import Header from './components/Header/Header';
 
 function App() {
 
-  const business = {
+  const businesses = [
+    {
     imageSrc: "images/pokebowl.jpg",
     name: "Pokawa",
     address: "12 Independence Avenue",
@@ -15,12 +16,74 @@ function App() {
     category: "Hawaii",
     rating: 4.5,
     reviewCount: 90
-  }
+    },
+
+    {
+    imageSrc: "images/pokebowl.jpg",
+    name: "Pokawa",
+    address: "12 Independence Avenue",
+    city: "Bordertown",
+    state: "NY",
+    zipCode: "10101",
+    category: "Hawaii",
+    rating: 4.5,
+    reviewCount: 90
+    },
+
+    {
+    imageSrc: "images/pokebowl.jpg",
+    name: "Pokawa",
+    address: "12 Independence Avenue",
+    city: "Bordertown",
+    state: "NY",
+    zipCode: "10101",
+    category: "Hawaii",
+    rating: 4.5,
+    reviewCount: 90
+    },
+
+    {
+    imageSrc: "images/pokebowl.jpg",
+    name: "Pokawa",
+    address: "12 Independence Avenue",
+    city: "Bordertown",
+    state: "NY",
+    zipCode: "10101",
+    category: "Hawaii",
+    rating: 4.5,
+    reviewCount: 90
+    },
+
+    {
+    imageSrc: "images/pokebowl.jpg",
+    name: "Pokawa",
+    address: "12 Independence Avenue",
+    city: "Bordertown",
+    state: "NY",
+    zipCode: "10101",
+    category: "Hawaii",
+    rating: 4.5,
+    reviewCount: 90
+    },
+
+    {
+    imageSrc: "images/pokebowl.jpg",
+    name: "Pokawa",
+    address: "12 Independence Avenue",
+    city: "Bordertown",
+    state: "NY",
+    zipCode: "10101",
+    category: "Hawaii",
+    rating: 4.5,
+    reviewCount: 90
+    }
+  ]
+
   return (
     <div>
       <h1 className={styles.title}>ravenous</h1>
       <Header />
-      <BusinessList business={business} />
+      <BusinessList businessesArray={businesses} />
     </div>
 
   );
