@@ -2,9 +2,9 @@ import React from 'react';
 import Business from '../Business/Business';
 import styles from './BusinessList.module.css';
 
-function BusinessList(props) {
+const BusinessList = props => {
   const businessListItems = props.businessesArray.map((restaurant,index) =>
-  <Business key={index} business={restaurant} />);
+  <Business key={index + 1} business={restaurant} />);
 
   return (
   <div className={styles.grid}>

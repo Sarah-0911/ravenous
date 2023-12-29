@@ -18,14 +18,12 @@ const business = {
 const businesses = [business, business, business, business, business, business];
 
 const App = () => {
-
   return (
     <div>
       <h1 className={styles.title}>ravenous</h1>
       <Header />
       <BusinessList businessesArray={businesses} />
     </div>
-
   );
 }
 
