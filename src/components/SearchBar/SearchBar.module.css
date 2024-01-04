@@ -22,13 +22,13 @@
 }
 
 .options:hover {
-  color:#c0c0c0;
+  color:#B6943D;
   transition-duration: 1s;
 }
 
-/* .options:target {
+.active {
   color:#B6943D;
-} */
+}
 
 .inputs {
   display: flex;

@@ -10,7 +10,8 @@ const SearchBar = () => {
 
   const [term, setTerm] = useState('');
   const [location, setLocation] = useState('');
-  const [sortingOption, setsortingOption] = useState(SORTING_OPTIONS['Best Match']);
+  const [sortOption, setsortOption] = useState(SORTING_OPTIONS['Best Match']);
+  const [activeOption, setActiveOption] = useState(null);
 
   const handleTermChange = e => {
     setTerm(e.target.value);
@@ -21,26 +22,24 @@ const SearchBar = () => {
   };
 
   const handleSortOptionChange = newOption => {
-    setsortingOption(SORTING_OPTIONS[newOption]);
+    setsortOption(SORTING_OPTIONS[newOption]);
+    setActiveOption(newOption);
   };
 
   const handleSearchButtonClick = () => {
     console.log(`Search Term: ${term}`);
     console.log(`Location: ${location}`);
-    console.log(`Sort Option: ${sortingOption}`);
+    console.log(`Sort Option: ${sortOption}`);
   }
-
-  // const handleClickOption = option => {
-  //     option.target.innertext =
-  // };
 
   return (
     <div className={styles.searchBar}>
       <div className={styles.filters}>
         {Object.keys(SORTING_OPTIONS).map(sortingByOption => {
+          const isActive = sortingByOption === activeOption;
           return (
             <li
-              className={styles.options}
+              className={`${styles.options} ${isActive? styles.active : ""}`}
               onClick={() => handleSortOptionChange(sortingByOption)}
               key={SORTING_OPTIONS[sortingByOption]}
             >
@@ -63,9 +62,14 @@ const SearchBar = () => {
           placeholder="Where?"
           onChange={handleLocationChange}
           value={location}
-          />
+        />
       </div>
-      <button onClick={handleSearchButtonClick} className={styles.go}>Let's go</button>
+      <button
+        onClick={handleSearchButtonClick}
+        className={styles.go}
+      >
+        Let's go
+      </button>
     </div>
   );
 }
