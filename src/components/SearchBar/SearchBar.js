@@ -31,22 +31,24 @@ const SearchBar = () => {
     console.log(`Searching Yelp with ${term}, ${location}, ${sortOption}`);
   }
 
+  const renderSortByOptions = () => {
+    return Object.keys(SORTING_OPTIONS).map(sortingByOption => {
+      const isActive = sortingByOption === activeOption;
+      return (
+        <li
+          className={`${styles.options} ${isActive? styles.active : ""}`}
+          onClick={() => handleSortOptionChange(sortingByOption)}
+          key={SORTING_OPTIONS[sortingByOption]}
+        >
+          {sortingByOption}
+        </li>
+      );
+    });
+  };
+
   return (
     <div className={styles.searchBar}>
-      <div className={styles.filters}>
-        {Object.keys(SORTING_OPTIONS).map(sortingByOption => {
-          const isActive = sortingByOption === activeOption;
-          return (
-            <li
-              className={`${styles.options} ${isActive? styles.active : ""}`}
-              onClick={() => handleSortOptionChange(sortingByOption)}
-              key={SORTING_OPTIONS[sortingByOption]}
-            >
-              {sortingByOption}
-            </li>
-          );
-        })}
-      </div>
+      <ul className={styles.filters}>{renderSortByOptions()}</ul>
       <div className={styles.inputs}>
         <input
           type="text"
