@@ -26,10 +26,9 @@ const SearchBar = () => {
     setActiveOption(newOption);
   };
 
-  const handleSearchButtonClick = () => {
-    console.log(`Search Term: ${term}`);
-    console.log(`Location: ${location}`);
-    console.log(`Sort Option: ${sortOption}`);
+  const handleSearchButtonClick = (event) => {
+    event.preventDefault();
+    console.log(`Searching Yelp with ${term}, ${location}, ${sortOption}`);
   }
 
   return (
