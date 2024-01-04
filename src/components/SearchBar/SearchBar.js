@@ -2,38 +2,47 @@ import React, { useState } from 'react';
 import styles from './SearchBar.module.css';
 
 const SearchBar = () => {
-  const sortingByOptions = {
+  const SORTING_OPTIONS = {
     'Best Match': 'best_match',
     'Highest Rated': 'rating',
     'Most Reviewed': 'review_count',
   };
 
-  const [searchTerm, setSearchTerm] = useState('');
+  const [term, setTerm] = useState('');
   const [location, setLocation] = useState('');
-  const [sortingOption, setsortingOption] = useState(sortingByOptions['Best Match']);
+  const [sortingOption, setsortingOption] = useState(SORTING_OPTIONS['Best Match']);
 
-  const handleSearchTermChange = e => {
-    setSearchTerm(e.target.value);
+  const handleTermChange = e => {
+    setTerm(e.target.value);
   };
 
   const handleLocationChange = e => {
     setLocation(e.target.value);
   };
 
-  const handleSortingOption = newOption => {
-    setsortingOption(sortingByOptions[newOption]);
+  const handleSortOptionChange = newOption => {
+    setsortingOption(SORTING_OPTIONS[newOption]);
   };
+
+  const handleSearchButtonClick = () => {
+    console.log(`Search Term: ${term}`);
+    console.log(`Location: ${location}`);
+    console.log(`Sort Option: ${sortingOption}`);
+  }
+
+  // const handleClickOption = option => {
+  //     option.target.innertext =
+  // };
 
   return (
     <div className={styles.searchBar}>
       <div className={styles.filters}>
-        {Object.keys(sortingByOptions).map(sortingByOption => {
-          let sortingByOptionValue = sortingByOptions[sortingByOption];
+        {Object.keys(SORTING_OPTIONS).map(sortingByOption => {
           return (
             <li
               className={styles.options}
-              onClick={() => handleSortingOption(sortingByOption)}
-              key={sortingByOptionValue}
+              onClick={() => handleSortOptionChange(sortingByOption)}
+              key={SORTING_OPTIONS[sortingByOption]}
             >
               {sortingByOption}
             </li>
@@ -45,8 +54,8 @@ const SearchBar = () => {
           type="text"
           className={styles.input}
           placeholder="Search Businesses"
-          onChange={handleSearchTermChange}
-          value={searchTerm}
+          onChange={handleTermChange}
+          value={term}
         />
         <input
           type="text"
@@ -56,7 +65,7 @@ const SearchBar = () => {
           value={location}
           />
       </div>
-      <button className={styles.go}>Let's go</button>
+      <button onClick={handleSearchButtonClick} className={styles.go}>Let's go</button>
     </div>
   );
 }
