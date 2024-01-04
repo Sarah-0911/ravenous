@@ -26,6 +26,10 @@
   transition-duration: 1s;
 }
 
+/* .options:target {
+  color:#B6943D;
+} */
+
 .inputs {
   display: flex;
   justify-content: center;
