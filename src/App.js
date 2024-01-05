@@ -2,9 +2,10 @@ import React from 'react';
 import styles from './App.module.css'
 import BusinessList from './components/BusinessList/BusinessList';
 import Header from './components/Header/Header';
+import pokebowlImage from "./assets/pokebowl.jpg";
 
 const business = {
-  imageSrc: "images/pokebowl.jpg",
+  imageSrc: pokebowlImage,
   name: "Pokawa",
   address: "12 Independence Avenue",
   city: "Bordertown",

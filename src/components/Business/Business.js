@@ -1,6 +1,5 @@
-// import React, { useState, useEffect } from 'react';
+import React from 'react';
 import styles from './Business.module.css';
-
 
 const Business = props => {
 
@@ -12,7 +11,7 @@ const Business = props => {
       <img
         className={styles.image}
         src={props.business.imageSrc}
-        alt=""
+        alt="restaurant"
       />
       <h2>{props.business.name}</h2>
       <div className={styles.flexDescription}>

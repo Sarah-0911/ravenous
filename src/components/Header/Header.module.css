@@ -1,5 +1,5 @@
 .heroBanner {
-  background-image: url('../../../public/images/ravenous-banner.jpg');
+  background-image: url('../../assets/ravenous-banner.jpg');
   background-size: cover;
   background-position: top;
   height: 320px;
