@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/ravenous/static/css/main.ece58558.css",
+    "main.js": "/ravenous/static/js/main.93cc4d86.js",
+    "static/js/787.a2761047.chunk.js": "/ravenous/static/js/787.a2761047.chunk.js",
+    "static/media/ravenous-banner.jpg": "/ravenous/static/media/ravenous-banner.d9b902f093569e7ba58b.jpg",
+    "static/media/pokebowl.jpg": "/ravenous/static/media/pokebowl.6507395ce29d44d83ba4.jpg",
+    "index.html": "/ravenous/index.html",
+    "main.ece58558.css.map": "/ravenous/static/css/main.ece58558.css.map",
+    "main.93cc4d86.js.map": "/ravenous/static/js/main.93cc4d86.js.map",
+    "787.a2761047.chunk.js.map": "/ravenous/static/js/787.a2761047.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ece58558.css",
+    "static/js/main.93cc4d86.js"
+  ]
+}
