@@ -1,11 +1,12 @@
-const apiKey = "UVM44qXF06-rB18ZWE_1b5QkNB1PMaMWz6yfAlh1D8ZVKJd6cGAXmm5VFcClnlxneYk57Xyf2ZZQZcWGjVyUZAZxc9jJ-AUxm-10sZKN0PETW-I5UfcIcXcdacGZZXYx";
+import config from './config';
+
 const yelpApiUrl = 'https://api.yelp.com/v3/businesses/search?';
 
 const options = {
   method: 'GET',
   headers: {
     accept: 'application/json',
-    Authorization: `Bearer ${apiKey}`
+    Authorization: `Bearer ${config.apiKey}`
   }
 };
 
