@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styles from './SearchBar.module.css';
+import searchYelp from '../../utils/yelpApi';
 
 const SearchBar = () => {
   const SORTING_OPTIONS = {
@@ -26,10 +27,16 @@ const SearchBar = () => {
     setActiveOption(newOption);
   };
 
-  const handleSearchButtonClick = (event) => {
+  const handleSearchButtonClick = async event => {
     event.preventDefault();
-    console.log(`Searching Yelp with ${term}, ${location}, ${sortOption}`);
-  }
+
+    try {
+      const businesses = await searchYelp(term, location, sortOption);
+      console.log(businesses);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const renderSortByOptions = () => {
     return Object.keys(SORTING_OPTIONS).map(sortingByOption => {

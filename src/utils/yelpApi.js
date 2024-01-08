@@ -11,32 +11,35 @@ const options = {
 };
 
 const createSearchURL = (term, location, sortBy) => {
-  return `${yelpApiUrl}term=${term}&location=${location}&sort_by=${sortBy}`;
+  return `https://cors-anywhere.herokuapp.com/${yelpApiUrl}term=${term}&location=${location}&sort_by=${sortBy}`;
 };
 
-const search = (term, location, sortBy) => {
+const searchYelp = async (term, location, sortBy) => {
   const searchURL = createSearchURL(term, location, sortBy);
 
-  return fetch(searchURL, options)
-    .then(response => response.json())
-    .then(response => {
-      const businesses = response.map(business => {
-        return {
-          imageSrc: business.imageSrc,
-          name: business.name,
-          address: business.address,
-          city: business.city,
-          state: business.state,
-          zipCode: business.zipCode,
-          category: business.category,
-          rating: business.rating,
-          reviewCount: business.reviewCount
-        };
-      });
-      return businesses;
-      }
-    )
-    .catch(err => console.error(err));
+  try {
+    const response = await fetch(searchURL, options);
+    const data = await response.json();
+    const businessesResult = data.businesses.map(business => {
+      return {
+        imageSrc: business.image_url,
+        name: business.name,
+        address: `${business.location.address1}
+          ${business.location.address2} ${business.location.address3}`,
+        city: business.city,
+        state: business.state,
+        zipCode: business.zip_code,
+        category: business.categories.map(category => category.title).join(', '),
+        rating: business.rating,
+        reviewCount: business.review_count
+      };
+    });
+    return businessesResult;
+  } catch (err) {
+      return console.error(err);
+  }
 }
 
-export default search;
+// https://cors-anywhere.herokuapp.com/corsdemo
+
+export default searchYelp;

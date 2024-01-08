@@ -3,7 +3,6 @@ import styles from './App.module.css'
 import BusinessList from './components/BusinessList/BusinessList';
 import Header from './components/Header/Header';
 import pokebowlImage from "./assets/pokebowl.jpg";
-import search from './utils/yelpApi'
 
 const business = {
   imageSrc: pokebowlImage,
