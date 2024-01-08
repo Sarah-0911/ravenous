@@ -10,10 +10,14 @@ const options = {
   }
 };
 
-const search = (term, location, sortBy) => {
-  const searchURL = `${yelpApiUrl}term=${term}&location=${location}&sort_by=${sortBy}`;
+const createSearchURL = (term, location, sortBy) => {
+  return `${yelpApiUrl}term=${term}&location=${location}&sort_by=${sortBy}`;
+};
 
-  fetch(searchURL, options)
+const search = (term, location, sortBy) => {
+  const searchURL = createSearchURL(term, location, sortBy);
+
+  return fetch(searchURL, options)
     .then(response => response.json())
     .then(response => {
       const businesses = response.map(business => {
@@ -29,7 +33,7 @@ const search = (term, location, sortBy) => {
           reviewCount: business.reviewCount
         };
       });
-      console.log(businesses);
+      return businesses;
       }
     )
     .catch(err => console.error(err));
