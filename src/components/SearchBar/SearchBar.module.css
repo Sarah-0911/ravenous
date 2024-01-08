@@ -1,10 +1,14 @@
-.searchBar {
-  width: 80%;
-  margin: 0 auto;
+.heroBanner {
+  background-image: url('../../assets/ravenous-banner.jpg');
+  background-size: cover;
+  background-position: top;
+  height: 320px;
   text-align: center;
 }
 
 .filters {
+  width: 60%;
+  margin: 0 auto;
   border-bottom: 1px solid #eee;
   display: flex;
   justify-content: center;

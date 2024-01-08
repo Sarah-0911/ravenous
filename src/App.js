@@ -1,29 +1,27 @@
-import React from 'react';
+import React,{ useState } from 'react';
 import styles from './App.module.css'
 import BusinessList from './components/BusinessList/BusinessList';
-import Header from './components/Header/Header';
-import pokebowlImage from "./assets/pokebowl.jpg";
-
-const business = {
-  imageSrc: pokebowlImage,
-  name: "Pokawa",
-  address: "12 Independence Avenue",
-  city: "Bordertown",
-  state: "NY",
-  zipCode: "10101",
-  category: "Hawaii",
-  rating: 4.5,
-  reviewCount: 90
-};
-
-const businesses = [business, business, business, business, business, business];
+// import pokebowlImage from "./assets/pokebowl.jpg";
+import SearchBar from './components/SearchBar/SearchBar';
+import searchYelp from './utils/yelpApi';
 
 const App = () => {
+  const [ searchResults, setSearchResults ] = useState([]);
+
+  const performSearch = async (term, location, sortBy) => {
+    try {
+      const businesses = await searchYelp(term, location, sortBy);
+      setSearchResults(businesses);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div>
       <h1 className={styles.title}>ravenous</h1>
-      <Header />
-      <BusinessList businessesArray={businesses} />
+      <SearchBar onSearch={performSearch} />
+      <BusinessList businessesArray={searchResults} />
     </div>
   );
 }

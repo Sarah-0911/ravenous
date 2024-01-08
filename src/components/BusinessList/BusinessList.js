@@ -4,7 +4,7 @@ import styles from './BusinessList.module.css';
 
 const BusinessList = props => {
   const businessListItems = props.businessesArray.map((restaurant,index) =>
-  <Business key={index + 1} business={restaurant} />);
+  <Business key={`${index}-${restaurant.id}`} business={restaurant} />);
 
   return (
   <div className={styles.grid}>

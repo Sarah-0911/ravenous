@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import styles from './SearchBar.module.css';
-import searchYelp from '../../utils/yelpApi';
 
-const SearchBar = () => {
+const SearchBar = props => {
   const SORTING_OPTIONS = {
     'Best Match': 'best_match',
     'Highest Rated': 'rating',
@@ -29,9 +28,8 @@ const SearchBar = () => {
 
   const handleSearchButtonClick = async event => {
     event.preventDefault();
-
     try {
-      const businesses = await searchYelp(term, location, sortOption);
+      const businesses = await props.onSearch(term, location, sortOption);
       console.log(businesses);
     } catch (error) {
       console.log(error);
@@ -54,7 +52,7 @@ const SearchBar = () => {
   };
 
   return (
-    <div className={styles.searchBar}>
+    <div className={styles.heroBanner}>
       <ul className={styles.filters}>{renderSortByOptions()}</ul>
       <div className={styles.inputs}>
         <input
