@@ -20,15 +20,15 @@ const searchYelp = async (term, location, sortBy) => {
   try {
     const response = await fetch(searchURL, options);
     const data = await response.json();
+    console.log(data);
     const businessesResult = data.businesses.map(business => {
       return {
         imageSrc: business.image_url,
         name: business.name,
-        address: `${business.location.address1}
-          ${business.location.address2} ${business.location.address3}`,
-        city: business.city,
-        state: business.state,
-        zipCode: business.zip_code,
+        address: `${business.location.address1} ${business.location.address2} ${business.location.address3}`,
+        city: business.location.city,
+        state: business.location.state,
+        zipCode: business.location.zip_code,
         category: business.categories.map(category => category.title).join(', '),
         rating: business.rating,
         reviewCount: business.review_count
