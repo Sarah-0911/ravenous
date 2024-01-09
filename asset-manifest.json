@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/ravenous/static/css/main.1e569d0b.css",
+    "main.js": "/ravenous/static/js/main.745cff5f.js",
+    "static/js/787.a2761047.chunk.js": "/ravenous/static/js/787.a2761047.chunk.js",
+    "static/media/ravenous-banner.jpg": "/ravenous/static/media/ravenous-banner.d9b902f093569e7ba58b.jpg",
+    "index.html": "/ravenous/index.html",
+    "main.1e569d0b.css.map": "/ravenous/static/css/main.1e569d0b.css.map",
+    "main.745cff5f.js.map": "/ravenous/static/js/main.745cff5f.js.map",
+    "787.a2761047.chunk.js.map": "/ravenous/static/js/787.a2761047.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1e569d0b.css",
+    "static/js/main.745cff5f.js"
+  ]
+}
