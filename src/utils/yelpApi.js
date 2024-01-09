@@ -25,7 +25,7 @@ const searchYelp = async (term, location, sortBy) => {
       return {
         imageSrc: business.image_url,
         name: business.name,
-        address: `${business.location.address1} ${business.location.address2} ${business.location.address3}`,
+        address: business.location.address1,
         city: business.location.city,
         state: business.location.state,
         zipCode: business.location.zip_code,

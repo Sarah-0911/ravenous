@@ -13,8 +13,8 @@ const Business = props => {
       <div className={styles.flexDescription}>
         <div>
           <p>{props.business.address}</p>
-          <p>{props.business.city}</p>
           <p>{props.business.zipCode}</p>
+          <p>{props.business.city}</p>
         </div>
         <div className={styles.rightDescription}>
           <p className={styles.gold}>{props.business.category.toUpperCase()}</p>

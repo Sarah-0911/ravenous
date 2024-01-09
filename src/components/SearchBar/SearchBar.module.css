@@ -60,3 +60,7 @@ cursor: pointer;
   background-color: #9b7923;
   transition-duration: 1s;
 }
+
+.enterPressed {
+  background-color: #9b7923;
+}
