@@ -3,18 +3,18 @@ import styles from './Business.module.css';
 
 const Business = props => {
   return (
-    <div>
+    <div className={styles.businessContainer}>
       <img
         className={styles.image}
         src={props.business.imageSrc}
         alt="restaurant"
       />
-      <h2>{props.business.name}</h2>
+      <h3>{props.business.name}</h3>
       <div className={styles.flexDescription}>
         <div>
           <p>{props.business.address}</p>
           <p>{props.business.city}</p>
-          <p>{`${props.business.state} ${props.business.zipCode}`}</p>
+          <p>{props.business.zipCode}</p>
         </div>
         <div className={styles.rightDescription}>
           <p className={styles.gold}>{props.business.category.toUpperCase()}</p>

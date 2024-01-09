@@ -3,6 +3,10 @@ import Business from '../Business/Business';
 import styles from './BusinessList.module.css';
 
 const BusinessList = props => {
+  if(!props.businessesArray) {
+    return null;
+  }
+
   const businessListItems = props.businessesArray.map((restaurant,index) =>
   <Business key={`${index}-${restaurant.id}`} business={restaurant} />);
 

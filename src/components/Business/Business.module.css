@@ -3,8 +3,16 @@
   font-weight: 700;
 }
 
+
+.businessContainer {
+  width: 18rem;
+  height: 26rem;
+}
+
 .image {
-  width: 100%;
+  object-fit: cover;
+  width: 18rem;
+  height: 18rem;
 }
 
 .flexDescription {
