@@ -19,7 +19,7 @@ const BusinessList = props => {
           rel="noreferrer">
           link
         </a>
-        &nbsp;first and request temporary access in order to display search results
+        &nbsp;first and Request temporary access in order to display search results
       </h3>}
       {businessListItems}
     </div>
