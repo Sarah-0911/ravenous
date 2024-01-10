@@ -40,6 +40,4 @@ const searchYelp = async (term, location, sortBy) => {
   }
 }
 
-// https://cors-anywhere.herokuapp.com/corsdemo
-
 export default searchYelp;
