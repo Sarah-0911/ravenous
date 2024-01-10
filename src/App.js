@@ -1,6 +1,5 @@
 // import pokebowlImage from "./assets/pokebowl.jpg";
-
-import React,{ useState } from 'react';
+import React, { useState } from 'react';
 import styles from './App.module.css'
 import searchYelp from './utils/yelpApi';
 import SearchBar from './components/SearchBar/SearchBar';

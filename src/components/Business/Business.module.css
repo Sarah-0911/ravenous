@@ -7,6 +7,9 @@
 .businessContainer {
   width: 18rem;
   height: 26rem;
+  padding: 16px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 5px;
 }
 
 .image {
@@ -18,8 +21,11 @@
 .flexDescription {
   display: flex;
   justify-content: space-between;
+  padding-top: 6px;
+  font-size: .9rem;
 }
 
 .rightDescription {
   text-align: right;
+  width: 50%;
 }

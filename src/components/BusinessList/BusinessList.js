@@ -13,12 +13,12 @@ const BusinessList = props => {
       {props.businessesArray.length === 0 &&
       <h3 className={styles.corsLink}>
         You may need to visit this&nbsp;
-        <a
-          href={corsLink}
-          target="_blank"
-          rel="noreferrer">
-          link
-        </a>
+          <a
+            href={corsLink}
+            target="_blank"
+            rel="noreferrer">
+            link
+          </a>
         &nbsp;first and Request temporary access in order to display search results
       </h3>}
       {businessListItems}
