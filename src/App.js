@@ -1,9 +1,11 @@
+// import pokebowlImage from "./assets/pokebowl.jpg";
+
 import React,{ useState } from 'react';
 import styles from './App.module.css'
-import BusinessList from './components/BusinessList/BusinessList';
-// import pokebowlImage from "./assets/pokebowl.jpg";
-import SearchBar from './components/SearchBar/SearchBar';
 import searchYelp from './utils/yelpApi';
+import SearchBar from './components/SearchBar/SearchBar';
+import BusinessList from './components/BusinessList/BusinessList';
+import Footer from './components/Footer/Footer';
 
 const App = () => {
   const [ searchResults, setSearchResults ] = useState([]);
@@ -22,6 +24,7 @@ const App = () => {
       <h1 className={styles.title}>ravenous</h1>
       <SearchBar onSearch={performSearch} />
       <BusinessList businessesArray={searchResults} />
+      <Footer />
     </div>
   );
 }
