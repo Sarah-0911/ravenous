@@ -2,12 +2,20 @@ import React from 'react';
 import styles from './Business.module.css';
 
 const Business = props => {
+  const handleClick = () => {
+    const url = props.business.url;
+    if (url) {
+      window.open(url)
+    }
+  }
+
   return (
     <div className={styles.businessContainer}>
       <img
         className={styles.image}
         src={props.business.imageSrc}
         alt="restaurant"
+        onClick={handleClick}
       />
       <h3>{props.business.name}</h3>
       <div className={styles.flexDescription}>

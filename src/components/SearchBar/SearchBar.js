@@ -31,7 +31,11 @@ const SearchBar = props => {
     event.preventDefault();
     try {
       const businesses = await props.onSearch(term, location, sortOption);
-      console.log(businesses);
+      if (businesses) {
+        console.log(businesses);
+      } else {
+        console.log("the function returned undefined or null");
+      }
     } catch (error) {
       console.log(error);
     }

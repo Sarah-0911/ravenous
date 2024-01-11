@@ -16,7 +16,6 @@ const createSearchURL = (term, location, sortBy) => {
 
 const searchYelp = async (term, location, sortBy) => {
   const searchURL = createSearchURL(term, location, sortBy);
-
   try {
     const response = await fetch(searchURL, options);
     const data = await response.json();
@@ -31,9 +30,11 @@ const searchYelp = async (term, location, sortBy) => {
         zipCode: business.location.zip_code,
         category: business.categories.map(category => category.title).join(', '),
         rating: business.rating,
-        reviewCount: business.review_count
+        reviewCount: business.review_count,
+        url: business.url
       };
     });
+    // console.log(businessesResult[1].url);
     return businessesResult;
   } catch (err) {
       return console.error(err);
