@@ -36,8 +36,8 @@ const searchYelp = async (term, location, sortBy) => {
     });
     // console.log(businessesResult[1].url);
     return businessesResult;
-  } catch (err) {
-      return console.error(err);
+  } catch (error) {
+      console.error(error);
   }
 }
 

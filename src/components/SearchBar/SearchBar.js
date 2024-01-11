@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from './SearchBar.module.css';
 
-const SearchBar = props => {
+const SearchBar = (props) => {
   const SORTING_OPTIONS = {
     'Best Match': 'best_match',
     'Highest Rated': 'rating',
@@ -31,11 +31,7 @@ const SearchBar = props => {
     event.preventDefault();
     try {
       const businesses = await props.onSearch(term, location, sortOption);
-      if (businesses) {
-        console.log(businesses);
-      } else {
-        console.log("the function returned undefined or null");
-      }
+      console.log(businesses);
     } catch (error) {
       console.log(error);
     }

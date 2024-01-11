@@ -17,6 +17,11 @@
   width: 18rem;
   height: 18rem;
   cursor: pointer;
+  transition: opacity 1s;
+}
+
+.image:hover {
+  opacity: .8;
 }
 
 .flexDescription {

@@ -13,6 +13,7 @@ const App = () => {
     try {
       const businesses = await searchYelp(term, location, sortBy);
       setSearchResults(businesses);
+      return businesses;
     } catch (error) {
       console.log(error);
     }
