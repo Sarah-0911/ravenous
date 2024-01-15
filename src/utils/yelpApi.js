@@ -22,6 +22,7 @@ const searchYelp = async (term, location, sortBy) => {
     console.log(data);
     const businessesResult = data.businesses.map(business => {
       return {
+        id: business.id,
         imageSrc: business.image_url,
         name: business.name,
         address: business.location.address1,
