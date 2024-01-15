@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from './SearchBar.module.css';
 
-const SearchBar = props => {
+const SearchBar = (props) => {
   const SORTING_OPTIONS = {
     'Best Match': 'best_match',
     'Highest Rated': 'rating',
@@ -12,6 +12,7 @@ const SearchBar = props => {
   const [location, setLocation] = useState('');
   const [sortOption, setsortOption] = useState(SORTING_OPTIONS['Best Match']);
   const [activeOption, setActiveOption] = useState(null);
+  const [enterPressed, setEnterPressed] = useState(false);
 
   const handleTermChange = e => {
     setTerm(e.target.value);
@@ -34,6 +35,17 @@ const SearchBar = props => {
     } catch (error) {
       console.log(error);
     }
+  };
+
+  const handleKeyDown = event => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      handleSearchButtonClick(event);
+      setEnterPressed(true);
+    }
+    setTimeout(() => {
+      setEnterPressed(false);
+    }, 400);
   };
 
   const renderSortByOptions = () => {
@@ -60,6 +72,7 @@ const SearchBar = props => {
           className={styles.input}
           placeholder="Search Businesses"
           onChange={handleTermChange}
+          onKeyDown={handleKeyDown}
           value={term}
         />
         <input
@@ -67,12 +80,13 @@ const SearchBar = props => {
           className={styles.input}
           placeholder="Where?"
           onChange={handleLocationChange}
+          onKeyDown={handleKeyDown}
           value={location}
         />
       </div>
       <button
         onClick={handleSearchButtonClick}
-        className={styles.go}
+        className={`${styles.go} ${enterPressed ? styles.enterPressed : ""}`}
       >
         Let's go
       </button>

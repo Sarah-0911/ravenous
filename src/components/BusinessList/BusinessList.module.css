@@ -3,7 +3,12 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 60px;
+  gap: 48px;
   grid-template-columns: repeat(3, 1fr);
   list-style-type: none;
+}
+
+.corsLink{
+  color: #8c8c8c;
+  text-align: center;
 }
