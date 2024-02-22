@@ -9,6 +9,15 @@ const BusinessList = props => {
   return <Business key={restaurant.id} business={restaurant} />
   });
 
+  if(props.isLoading && props.businessesArray.length === 0) {
+    return (
+    <div className={styles.load}>
+      <div className={styles.loadSpinner}></div>
+      <p>Loading...</p>
+    </div>
+    )
+  }
+
   return (
     <div className={styles.grid}>
       {businessListItems}

@@ -7,15 +7,21 @@ import BusinessList from './components/BusinessList/BusinessList';
 import Footer from './components/Footer/Footer';
 
 const App = () => {
-  const [ searchResults, setSearchResults ] = useState([]);
+  const [searchResults, setSearchResults] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+
 
   const performSearch = async (term, location, sortBy) => {
     try {
+      setIsLoading(true);
       const businesses = await searchYelp(term, location, sortBy);
       setSearchResults(businesses);
+      setIsLoading(false);
       return businesses;
+
     } catch (error) {
       console.log(error);
+      setIsLoading(false);
     }
   };
 
@@ -23,7 +29,7 @@ const App = () => {
     <div>
       <h1 className={styles.title}>ravenous</h1>
       <SearchBar onSearch={performSearch} />
-      <BusinessList businessesArray={searchResults} />
+      <BusinessList isLoading={isLoading} businessesArray={searchResults} />
       <Footer />
     </div>
   );
