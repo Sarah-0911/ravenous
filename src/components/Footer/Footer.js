@@ -6,7 +6,9 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons';
 const Footer = () => {
   return (
     <div className={styles.footer}>
-      <p>2024 | <FontAwesomeIcon icon={faGithub} /> Sarah-0911</p>
+      <p>2024 | <FontAwesomeIcon icon={faGithub} />
+        <a href='https://github.com/Sarah-0911' rel='noreferrer' target='_blank'>&nbsp;Sarah-0911</a>
+      </p>
     </div>
   )
 }

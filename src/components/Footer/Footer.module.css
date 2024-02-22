@@ -1,4 +1,4 @@
-.footer{
+.footer {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -6,4 +6,14 @@
   background-color: #B6943D;
   color: #FFF;
   font-weight: 600;
+}
+
+.footer a {
+  text-decoration: none;
+  color: #FFF;
+  transition: 300ms;
+}
+
+.footer a:hover {
+  color: #68329a;
 }
