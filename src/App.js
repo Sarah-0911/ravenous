@@ -9,18 +9,30 @@ import Footer from './components/Footer/Footer';
 const App = () => {
   const [searchResults, setSearchResults] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-
+  const [hasSearched, setHasSearched] = useState(false);
+  const [apiError, setApiError] = useState('');
 
   const performSearch = async (term, location, sortBy) => {
     try {
       setIsLoading(true);
+      setApiError('');
       const businesses = await searchYelp(term, location, sortBy);
-      setSearchResults(businesses);
+
+      if (businesses.error) {
+        setSearchResults([]);
+        setApiError(businesses.error.description || "An unknown error occurred.");
+      } else {
+        setSearchResults(businesses);
+      }
+
       setIsLoading(false);
-      return businesses;
+      setHasSearched(true);
+      // return businesses;
 
     } catch (error) {
       console.log(error);
+      setApiError('An unexpected error occurred.');
+      setHasSearched(true);
       setIsLoading(false);
     }
   };
@@ -31,7 +43,11 @@ const App = () => {
         <h1 className={styles.title}>ravenous</h1>
       </div>
       <SearchBar onSearch={performSearch} />
-      <BusinessList isLoading={isLoading} businessesArray={searchResults} />
+      <BusinessList
+        isLoading={isLoading}
+        businessesArray={searchResults}
+        hasSearched={hasSearched}
+        apiError={apiError} />
       <Footer />
     </div>
   );

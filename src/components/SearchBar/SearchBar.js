@@ -13,6 +13,8 @@ const SearchBar = (props) => {
   const [sortOption, setsortOption] = useState(SORTING_OPTIONS['Best Match']);
   const [activeOption, setActiveOption] = useState(null);
   const [enterPressed, setEnterPressed] = useState(false);
+  const [errors, setErrors] = useState({ term: '', location: '' });
+
 
   const handleTermChange = e => {
     setTerm(e.target.value);
@@ -29,6 +31,32 @@ const SearchBar = (props) => {
 
   const handleSearchButtonClick = async event => {
     event.preventDefault();
+
+    let hasError = false;
+    const newErrors = { term: '', location: '' };
+
+    if (!term.trim()) {
+      newErrors.term = 'Please enter a search term.';
+      hasError = true;
+    }
+
+    if (!location.trim()) {
+      newErrors.location = 'Please enter a location.';
+      hasError = true;
+    }
+
+    if (hasError) {
+      setTimeout(() => {
+        setErrors({ term: '', location: '' });
+      }, 2000);
+    }
+
+    setErrors(newErrors);
+
+    if (hasError) {
+      return;
+    }
+
     try {
       const businesses = await props.onSearch(term, location, sortOption);
       console.log(businesses);
@@ -67,22 +95,28 @@ const SearchBar = (props) => {
     <div className={styles.heroBanner}>
       <ul className={styles.filters}>{renderSortByOptions()}</ul>
       <div className={styles.inputs}>
-        <input
-          type="text"
-          className={styles.input}
-          placeholder="Search Businesses"
-          onChange={handleTermChange}
-          onKeyDown={handleKeyDown}
-          value={term}
-        />
-        <input
-          type="text"
-          className={styles.input}
-          placeholder="Where?"
-          onChange={handleLocationChange}
-          onKeyDown={handleKeyDown}
-          value={location}
-        />
+        <div className={styles.inputContainer}>
+          <input
+            type="text"
+            className={styles.input}
+            placeholder="Search Businesses"
+            onChange={handleTermChange}
+            onKeyDown={handleKeyDown}
+            value={term}
+          />
+          {errors.term && <span className={styles.error}>{errors.term}</span>}
+        </div>
+        <div className={styles.inputContainer}>
+          <input
+            type="text"
+            className={styles.input}
+            placeholder="Where?"
+            onChange={handleLocationChange}
+            onKeyDown={handleKeyDown}
+            value={location}
+          />
+          {errors.location && <span className={styles.error}>{errors.location}</span>}
+        </div>
       </div>
       <button
         onClick={handleSearchButtonClick}

@@ -30,6 +30,16 @@
   animation: spinner 1.5s linear infinite;
 }
 
+.apiError {
+  color: #ff4d4d;
+  text-align: center;
+  margin: 2rem auto;
+}
+
+.errorContainer {
+  padding: 2rem;
+}
+
 @keyframes spinner {
   0% {
     transform: rotate(0deg);
