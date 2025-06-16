@@ -1,6 +1,23 @@
-.title {
-  text-align: center;
-  color: #eee;
+.appContainer {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Le contenu (tout sauf footer) doit prendre tout l'espace restant */
+.appContainer > :not(.footer) {
+  flex: 1 0 auto; /* prend tout l'espace possible */
+}
+
+.titleContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #B6943D;
+  padding-bottom: 6px;
+}
+
+.title {
+  color: #eee;
   padding-bottom: 6px;
 }

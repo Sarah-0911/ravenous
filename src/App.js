@@ -26,8 +26,10 @@ const App = () => {
   };
 
   return (
-    <div>
-      <h1 className={styles.title}>ravenous</h1>
+    <div className={styles.appContainer}>
+      <div className={styles.titleContainer}>
+        <h1 className={styles.title}>ravenous</h1>
+      </div>
       <SearchBar onSearch={performSearch} />
       <BusinessList isLoading={isLoading} businessesArray={searchResults} />
       <Footer />
